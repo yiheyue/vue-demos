@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Composing with components</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <todo-item></todo-item>
+    </div>
+
+    <script>
+        // Define a new component called todo-item
+        Vue.component("todo-item", {
+            template: "<li>Text inside todo-item</li>"
+        });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Todos"
+            }
+        });
+    </script>
+</body>
+</html>

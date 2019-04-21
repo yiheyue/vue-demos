@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Composing with Components</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <todo-item
+                v-for="todo in todos"
+                v-bind:key="todo.id"
+                v-bind:todo="todo"
+            >
+            </todo-item>
+        </ol>
+    </div>
+
+    <script>
+        Vue.component("todo-item", {
+            props: ["todo"],
+            template: "<li>{{todo.text}}</li>"
+        });
+        
+        var app = new Vue({
+            el: "#app",
+            data: {
+                todos: [
+                    { id: 1, text: "Do my homework" },
+                    { id: 2, text: "Play the video games" },
+                    { id: 3, text: "Watch movies" }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
