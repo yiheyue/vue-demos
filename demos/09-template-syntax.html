@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Text -->
+        <span>Message: {{msg}}</span>
+        <span v-once>This will never change: {{msg}}</span>
+
+        <!-- Raw HTML -->
+        <p>Using mustaches: {{rawHtml}}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+        <!-- Attributes -->
+        <div v-bind:id="dynamicId"></div>
+        <button v-bind:disabled="isButtonDisabled">Disable</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "How are you?",
+                rawHtml: "<span style=\"color:red\">This should be red.</span>",
+                dynamicId: "user-defined-id",
+                isButtonDisabled: true
+            }
+        });
+    </script>
+</body>
+</html>
